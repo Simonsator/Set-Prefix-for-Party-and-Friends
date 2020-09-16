@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class DNCPlugin extends PAFExtension implements DisplayNameProvider, Listener {
-	private Map<UUID, String> displayNames = new HashMap<>();
+	private final Map<UUID, String> displayNames = new HashMap<>();
 	private ConfigurationCreator configuration;
 
 	@Override
@@ -58,7 +58,7 @@ public class DNCPlugin extends PAFExtension implements DisplayNameProvider, List
 	@Override
 	public String getDisplayName(OnlinePAFPlayer pPlayer) {
 		String name = displayNames.get(pPlayer.getUniqueId());
-		if (displayNames == null)
+		if (name == null)
 			return pPlayer.getName();
 		return name;
 	}
